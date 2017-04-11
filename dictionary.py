@@ -29,29 +29,25 @@ def fuzzy_match(word):
     return False
 
 
-
-
-
-
 #offers more features
-
 def anything_else(response):
-         if 'yes'in response:
-            print('Type to see:\na) this word in a sentence\nb)this word translated into Italian\nc)' \
+
+    if 'yes'in response:
+        print('Type to see:\na) this word in a sentence\nb)this word translated into Italian\nc)' \
                        'a definition of a new word\nd)suggest an alternative definition to this word')
-            print(something_else(input()))
-         elif 'no' in response:
-            print('bye')
-            exit(0)
-         else:
-            print('Type to see:\na) this word in a sentence\nb)this word translated into Italian\nc)' \
+        print(something_else(input()))
+    elif 'no' in response:
+        print('bye')
+        exit(0)
+    else:
+        print('Type to see:\na) this word in a sentence\nb)this word translated into Italian\nc)' \
                        'a definition of a new word\nd)suggest an alternative definition to this word')
-            print(something_else(input()))
+        print(something_else(input()))
 
 def put_sentence(word):
-      sentence = dict()
-      sentence = {'pen': ['Circle the answer using a red pen', 'He couldn\'t pen the story']}
-      print (sentence[word])
+    sentence = dict()
+    sentence = {'pen': ['Circle the answer using a red pen', 'He couldn\'t pen the story']}
+    print (sentence[word])
 
 def translate(word):
     italian = dict()
