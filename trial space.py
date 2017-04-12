@@ -104,23 +104,34 @@ def put_sentence(word):
 
 
 
-greeting = 'Please type an english word to get a definition'
+print('Please type an english word to get a definition')
 lookup_word = input()
 definition = suggest_definition(lookup_word)
-
-
-
-definition
 print_definitions(definition)
-can_i_help()
-anything_else(input())
-something_else(input())
-can_i_help()
-anything_else(input())
-something_else(input())
-can_i_help()
-anything_else(input())
-something_else(input())
-can_i_help()
-anything_else(input())
-something_else(input())
+
+
+
+while True:
+    can_i_help()
+    response = input()
+    if 'no' in response:
+        print('bye')
+        break
+    else:
+        print('Type to see:\na)this word translated into Italian\nb)this word in a sentence\nc)' \
+                       'a definition of a new word\nd)suggest an alternative definition for this word')
+        response = input()
+        if 'translate' in response:
+            print('Please type english wordA')
+            trans_to_italian(input())
+        elif 'sentence' in response:
+            print('Please type english wordB')
+            put_sentence(input())
+        elif 'new' in response:
+            print('Please type english wordC')  # stuck on line 30
+            print_definitions(input())
+        elif 'alt' in response:
+            print('TODO: incomplete')
+        else:
+            print('Unrecognised. Please try again')
+
