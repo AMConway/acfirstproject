@@ -1,0 +1,33 @@
+word_definitions = {'pen': [('noun ', 'A writing implement'), ('verb ', 'Write something down')],
+              'mobile phone': ['noun A portable telephone'],
+              'small': ['adjective Less than average in size']}
+
+possible_definitions = (word_definitions[input()])
+# this function suggests a definition
+def suggest_definition(word):
+
+
+    if word in word_definitions:
+
+        return possible_definitions
+    else:
+        possible_match = fuzzy_match(word)
+        if possible_match:
+            return possible_match
+        else:
+            return False
+
+def fuzzy_match(word):
+
+    for entry in word_definitions:
+        if entry in word:
+            return word.upper() + ' not found\n' + 'Is this what you\'re looking for?\n' + entry + ': ' + str(word_definitions[entry])
+    return False
+
+def put_sentence(word):
+    sentence = dict()
+    sentence = {'pen': ['Circle the answer using a red pen', 'He couldn\'t pen the story'],
+                'mobile phone': ['She borrowed her friends mobile phone to call her parents'],
+                'small': 'The slice of cake was dissapointingly small'}
+    print (sentence[word])
+£

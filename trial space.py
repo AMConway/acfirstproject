@@ -1,8 +1,8 @@
 word_definitions = {
-    'pen': [('noun ', 'A writing implement', 'la penna'),
+    'pen': [('noun ', 'A writing implement','la penna'),
             ('verb ', 'Write something down', 'lui/lei scrive')],
-    'mobile phone': [('noun', 'A portable telephone', 'il cellulare')],
-    'small': [('adjective', 'Less than average in size', 'piccolo/a')]}
+    'mobile phone': [('noun', 'A portable telephone','il cellulare')],
+    'small': [('adjective', 'Less than average in size','piccolo/a')]}
 
 
 # this function suggests a definition
@@ -46,24 +46,30 @@ def can_i_help():
 def anything_else(response):
 
     if 'yes'in response:
-        print('Type to see:\na) this word in a sentence\nb)this word translated into Italian\nc)' \
+        print('Type to see:\na)this word translated into Italian \nb)this word in a sentence\nc)' \
                        'a definition of a new word\nd)suggest an alternative definition to this word')
-        return something_else(input())
+
     elif 'no' in response:
         print('bye')
         exit(0)
     else:
-        print('Type to see:\na) this word in a sentence\nb)this word translated into Italian\nc)' \
+        print('Type to see:\na)this word translated into Italian\nb)this word in a sentence\nc)' \
                        'a definition of a new word\nd)suggest an alternative definition to this word')
-        return something_else(input())
+
 
 def something_else(enter):
     if 'translate' in enter:
+        print('Please type english word')
         return trans_to_italian(input())
     elif 'sentence' in enter:
         print('incomplete')
+    elif 'def' or 'new' in enter:
+        print(suggest_definition(input()))
+    elif 'alt' in enter:
+        print('incomplete')
     else:
         print('try again')
+        return something_else(input())
 
 '''def put_sentence(word):
     sentence = dict()
@@ -72,17 +78,19 @@ def something_else(enter):
                 'small': 'The slice of cake was dissapointingly small'}
     print (sentence[word])'''
 
-'''def trans_to_italian(word):
+def trans_to_italian(word):
+    n = 1
     if word in word_definitions:
-        return word_definitions[word]
-        n = 1
+        english =  word_definitions[word]
+
         for eng_to_ita in english:
             print('{}: {}   {}'.format(n, eng_to_ita[0], eng_to_ita[2]))
             n = n + 1
     else:
         print('Sorry I don\'t recognise that word')
+        exit(0)
 
-    n = 1
+''' n = 1
     for eng_to_ita in english:
         print('{}: {}   {}'.format(n, eng_to_ita[0], eng_to_ita[2]))
         n = n + 1'''
@@ -93,6 +101,7 @@ def something_else(enter):
 lookup_word = input()
 definition = suggest_definition(lookup_word)
 '''translation = trans_to_italian(lookup_word)'''
+
 
 definition
 print_definitions(definition)

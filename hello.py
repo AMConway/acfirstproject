@@ -59,18 +59,18 @@ else:
 for speech, description in enumerate.(suggested_definition):
     print(speech,description)'''
 
-def anything_else(response):
+anything = 'Is there anything else we can help you with?'
 
-    if 'yes'in response:
-        print('Type to see:\na) this word in a sentence\nb)this word translated into Italian\nc)' \
-                       'a definition of a new word\nd)suggest an alternative definition to this word')
-        #print(something_else(input()))
-    elif 'no' in response:
-        print('bye')
-        exit(0)
-    else:
-        print('Type to see:\na) this word in a sentence\nb)this word translated into Italian\nc)' \
-                       'a definition of a new word\nd)suggest an alternative definition to this word')
-        #print(something_else(input()))
+if len(suggested_definition) ==1:
+    # problem here
+    ''' else :
+        print('There are {} definitions for {} in the dictionary.'.format(len(suggested_definition), lookup_word))
+        print('{}.{}\n{}.{}'.format((len(suggested_definition) - 1), possible_definitions[0],
+                                    len(suggested_definition), possible_definitions[1]))'''
 
-print(anything_else(input()))
+    n = len(definition)
+    if definition != False:
+        for i in range(n):
+            while n > 0:
+                n = n - 1
+                print(n * ('{}').format(n, definition(n)))

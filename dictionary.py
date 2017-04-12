@@ -41,15 +41,17 @@ def anything_else(response):
     else:
         print('Type to see:\na) this word in a sentence\nb)this word translated into Italian\nc)' \
                        'a definition of a new word\nd)suggest an alternative definition to this word')
-        #print(something_else(input()))'''
+        #print(something_else(input()))
 
 #notcomplete
-'''def put_sentence(word):
+def put_sentence(word):
     sentence = dict()
-    sentence = {'pen': ['Circle the answer using a red pen', 'He couldn\'t pen the story']}
+    sentence = {'pen': ['Circle the answer using a red pen', 'He couldn\'t pen the story'],
+                'mobile phone': ['She borrowed her friends mobile phone to call her parents'],
+                'small': 'The slice of cake was dissapointingly small'}
     print (sentence[word])
 
-def translate(word):
+'''def translate(word):
     italian = dict()
     italian = {'pen': ['la penna']}
     return italian['pen']
@@ -70,15 +72,7 @@ suggested_definition =suggest_definition(lookup_word)
 
 if suggested_definition != False:
          print('There is {} definitions for {} in the dictionary.'.format(len(suggested_definition), lookup_word))
-
-         if len(suggested_definition) ==1:
-             print('{}.{}'.format((len(suggested_definition) - 1), possible_definitions[0])
-#problem here
-         else :
-             print('There are {} definitions for {} in the dictionary.'.format(len(suggested_definition), lookup_word))
-             print('{}.{}\n{}.{}'.format((len(suggested_definition) - 1), possible_definitions[0],
-                                         len(suggested_definition), possible_definitions[1]))
-
+         print('{}.{}'.format((len(suggested_definition) - 1), possible_definitions[0])
 
       #for speech, definition in lookup_word:
              # print('{}\n {}'.format(word_definitions[word[0]], word_definitions[word[1]])
