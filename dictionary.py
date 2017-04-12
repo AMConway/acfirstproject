@@ -17,13 +17,11 @@ def suggest_definition(word):
         if possible_match:
             return possible_match
         else:
-            print('Word not found, enter a new word')
-    return
+            return False
 
 def fuzzy_match(word):
 
     for entry in word_definitions:
-        print(entry)
         if entry in word:
             return word.upper() + ' not found\n' + 'Is this what you\'re looking for?\n' + entry + ': ' + str(word_definitions[entry])
     return False
@@ -67,6 +65,12 @@ def something_else(enter):
 
 
 anything ='Is there anything else we can help you with?'
-print(suggest_definition(input()))
+suggested_definition =suggest_definition(input())
+if suggested_definition != False:
+    print(suggested_definition)
+else:
+    print('Word not found, enter a new word')
+
+
 print(anything)
 print(anything_else(input()))
