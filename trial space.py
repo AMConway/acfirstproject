@@ -1,6 +1,8 @@
-word_definitions = {'pen': [('noun ', 'A writing implement'), ('verb ', 'Write something down')],
-              'mobile phone': ['noun A portable telephone'],
-              'small': ['adjective Less than average in size']}
+word_definitions = {
+    'pen': [('noun ', 'A writing implement', 'la penna'),
+            ('verb ', 'Write something down', 'lui/lei scrive')],
+    'mobile phone': [('noun', 'A portable telephone', 'il cellulare')],
+    'small': [('adjective', 'Less than average in size', 'piccolo/a')]}
 
 
 # this function suggests a definition
@@ -8,7 +10,6 @@ def suggest_definition(word):
 
 
     if word in word_definitions:
-        print('stage1 is correct')
         return word_definitions[word]
     else:
         possible_match = fuzzy_match(word)
@@ -21,10 +22,11 @@ def print_definitions(definition):
     if definition != False:
         n = 1
         for this_definition in definition:
-            print('{}: {} {}'.format(n, this_definition[0], this_definition[1]))
+            print('{}: {}   {}'.format(n, this_definition[0], this_definition[1]))
             n = n + 1
     else:
-        print('error')
+        print('Sorry I don\'t recognise that word')
+
 
 
 def fuzzy_match(word):
@@ -32,25 +34,36 @@ def fuzzy_match(word):
 
     for entry in word_definitions:
         if entry in word:
-            matched_definition = word.upper() + ' not found\n' + 'Is this what you\'re looking for?\n' + entry + ': ' + str(word_definitions[entry])
+            matched_definition = word_definitions[entry]
+            print(word.upper() + ' not found\n' + 'Is this what you\'re looking for?\n' + entry + ': ')
             break
-
     return matched_definition
+
+def can_i_help():
+    print('Is there anything else I can help you with?')
+
 
 def anything_else(response):
 
     if 'yes'in response:
         print('Type to see:\na) this word in a sentence\nb)this word translated into Italian\nc)' \
                        'a definition of a new word\nd)suggest an alternative definition to this word')
-        #print(something_else(input()))
+        return something_else(input())
     elif 'no' in response:
         print('bye')
         exit(0)
     else:
         print('Type to see:\na) this word in a sentence\nb)this word translated into Italian\nc)' \
                        'a definition of a new word\nd)suggest an alternative definition to this word')
-        #print(something_else(input()))
+        return something_else(input())
 
+def something_else(enter):
+    if 'translate' in enter:
+        return trans_to_italian(input())
+    elif 'sentence' in enter:
+        print('incomplete')
+    else:
+        print('try again')
 
 '''def put_sentence(word):
     sentence = dict()
@@ -59,9 +72,30 @@ def anything_else(response):
                 'small': 'The slice of cake was dissapointingly small'}
     print (sentence[word])'''
 
+'''def trans_to_italian(word):
+    if word in word_definitions:
+        return word_definitions[word]
+        n = 1
+        for eng_to_ita in english:
+            print('{}: {}   {}'.format(n, eng_to_ita[0], eng_to_ita[2]))
+            n = n + 1
+    else:
+        print('Sorry I don\'t recognise that word')
+
+    n = 1
+    for eng_to_ita in english:
+        print('{}: {}   {}'.format(n, eng_to_ita[0], eng_to_ita[2]))
+        n = n + 1'''
+
+
+
+
 lookup_word = input()
 definition = suggest_definition(lookup_word)
+'''translation = trans_to_italian(lookup_word)'''
 
-print(definition)
+definition
 print_definitions(definition)
-print(anything_else(input()))
+can_i_help()
+anything_else(input())
+something_else(input())
