@@ -65,7 +65,7 @@ def something_else(enter):
     elif 'sentence' in enter:
         print('Please type english wordB')
         return put_sentence(input())
-    elif 'new' in enter:
+    elif 'defin' in enter:
         print('Please type english wordC')#stuck on line 30
         return(print_definitions(input()))
     elif 'alt' in enter:
